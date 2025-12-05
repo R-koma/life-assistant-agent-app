@@ -4,6 +4,7 @@ import { jaJP } from "@clerk/localizations";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
+import { ThemeProvider } from "@/src/contexts/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +32,10 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header />
-          {children}
+          <ThemeProvider>
+            <Header />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
