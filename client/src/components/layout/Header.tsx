@@ -1,11 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import ThemeToggle from "@/src/components/ui/ThemeToggle";
 
@@ -27,8 +20,12 @@ export default async function Header() {
           </button>
         </SignedOut>
         <SignedIn>
-          <Link href="/dashboard" className="hover:text-[#6c47ff] dark:hover:text-[#818cf8] transition-colors">Dashboard</Link>
-          <Link href="/settings" className="hover:text-[#6c47ff] dark:hover:text-[#818cf8] transition-colors">Settings</Link>
+          <Link
+            href="/settings"
+            className="hover:text-[#6c47ff] dark:hover:text-[#818cf8] transition-colors"
+          >
+            Settings
+          </Link>
           <UserButton />
         </SignedIn>
       </nav>

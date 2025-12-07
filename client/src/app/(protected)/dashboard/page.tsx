@@ -1,10 +1,7 @@
-import Header from "@/src/components/layout/Header";
-import React from "react";
-
 export default function page() {
   return (
     <div>
-      <Header />
+      <h1>ダッシュボードのページ</h1>
     </div>
   );
 }

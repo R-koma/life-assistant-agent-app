@@ -14,7 +14,7 @@ async def verify_clerk_token(
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ) -> Dict:
     token = credentials.credentials
-    
+
     try:
         signing_key = jwks_client.get_signing_key_from_jwt(token)
         
