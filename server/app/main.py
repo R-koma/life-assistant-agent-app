@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import protected
 
+
 app = FastAPI(title="Clerk + FastAPI")
 
 app.add_middleware(

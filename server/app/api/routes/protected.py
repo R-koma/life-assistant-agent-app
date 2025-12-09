@@ -11,7 +11,7 @@ async def protected_route(
 ):
     user_id = token_data["sub"]
     session_id = token_data["sid"]
-    
+
     return {
         "message": "Access granted",
         "user_id": user_id,
@@ -28,3 +28,6 @@ async def user_info(
         "user_id": user_id,
         "message": f"Hello, user {user_id}"
     }
+
+
+protected_route()

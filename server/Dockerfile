@@ -10,22 +10,24 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 fastapi && \
     adduser --system --uid 1001 --gid 1001 --home /home/fastapi fastapi && \
     mkdir -p /home/fastapi/.cache/uv && \
-    chown -R fastapi:fastapi /app /home/fastapi
+    chown -R fastapi:fastapi /app /home/fastapi && \
+    chmod -R 755 /home/fastapi/.cache
 
 ENV UV_SYSTEM_PYTHON=1 \
     UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
     UV_CACHE_DIR=/home/fastapi/.cache/uv \
+    UV_HTTP_TIMEOUT=300 \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
+USER fastapi
+
 COPY --chown=fastapi:fastapi pyproject.toml uv.lock* ./
 
-RUN uv sync --frozen --no-cache
+RUN uv sync --frozen
 
 COPY --chown=fastapi:fastapi . .
-
-USER fastapi
 
 EXPOSE 8000
 
