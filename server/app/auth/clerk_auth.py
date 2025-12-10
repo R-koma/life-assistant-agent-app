@@ -17,7 +17,7 @@ async def verify_clerk_token(
 
     try:
         signing_key = jwks_client.get_signing_key_from_jwt(token)
-        
+
         decoded = jwt.decode(
             token,
             signing_key.key,
@@ -32,9 +32,9 @@ async def verify_clerk_token(
             audience=settings.CLERK_AUDIENCE if settings.CLERK_AUDIENCE else None,
             issuer=settings.CLERK_FRONTEND_API_URL,
         )
-        
+
         return decoded
-        
+
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token has expired")
     except jwt.InvalidTokenError as e:

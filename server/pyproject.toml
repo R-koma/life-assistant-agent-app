@@ -10,4 +10,5 @@ dependencies = [
     "pydantic-settings>=2.0.0",
     "pyjwt[crypto]>=2.8.0",
     "annotated-types>=0.6.0",
+    "sqlalchemy>=2.0.45",
 ]

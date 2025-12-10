@@ -5,7 +5,10 @@ export default function LandingPage() {
       <section className="relative flex flex-col items-center text-center py-28 px-6 bg-gradient-to-b from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 leading-tight max-w-3xl">
           あなたの学習と生活を
-          <span className="text-indigo-600 dark:text-indigo-400"> "自動運転" </span>
+          <span className="text-indigo-600 dark:text-indigo-400">
+            {" "}
+            "自動運転"{" "}
+          </span>
           にするパーソナルAIコーチ
         </h1>
 
@@ -54,7 +57,9 @@ export default function LandingPage() {
 
           {/* Feature 2 */}
           <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md border border-transparent dark:border-gray-700">
-            <h3 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Todo優先度AI</h3>
+            <h3 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+              Todo優先度AI
+            </h3>
             <p className="mt-3 text-gray-600 dark:text-gray-300">
               Todoを自動整理。「今やるべきこと」だけに集中できます。
             </p>
@@ -93,9 +98,15 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Free */}
           <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Free</h3>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">基本的なAI学習サポートを体験</p>
-            <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mt-6">¥0</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+              Free
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              基本的なAI学習サポートを体験
+            </p>
+            <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mt-6">
+              ¥0
+            </p>
           </div>
 
           {/* Pro */}
@@ -107,9 +118,15 @@ export default function LandingPage() {
 
           {/* Master */}
           <div className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">Master</h3>
-            <p className="text-gray-600 dark:text-gray-300 mt-2">全AIキャラ開放 + データ分析</p>
-            <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mt-6">¥2,980/月</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+              Master
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              全AIキャラ開放 + データ分析
+            </p>
+            <p className="text-4xl font-bold text-gray-900 dark:text-gray-100 mt-6">
+              ¥2,980/月
+            </p>
           </div>
         </div>
       </section>
