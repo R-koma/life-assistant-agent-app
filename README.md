@@ -106,14 +106,14 @@ PYTHON_ENV=development
 
 ```bash
 # すべてのサービスを起動
-docker-compose up
+docker compose up
 
 # バックグラウンドで起動
-docker-compose up -d
+docker compose up -d
 
 # ログを確認
-docker-compose logs -f server
-docker-compose logs -f client
+docker compose logs -f server
+docker compose logs -f client
 ```
 
 起動後、以下のURLでアクセス可能：
@@ -125,7 +125,7 @@ docker-compose logs -f client
 ### サービスの停止
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## 開発ガイド
@@ -134,46 +134,46 @@ docker-compose down
 
 ```bash
 # マイグレーションファイルを自動生成
-docker-compose exec server uv run alembic revision --autogenerate -m "説明"
+docker compose exec server uv run alembic revision --autogenerate -m "説明"
 
 # マイグレーションを適用
-docker-compose exec server uv run alembic upgrade head
+docker compose exec server uv run alembic upgrade head
 
 # マイグレーション履歴を確認
-docker-compose exec server uv run alembic history
+docker compose exec server uv run alembic history
 
 # 現在のリビジョンを確認
-docker-compose exec server uv run alembic current
+docker compose exec server uv run alembic current
 ```
 
 ### データベースへの接続
 
 ```bash
 # PostgreSQLに接続
-docker-compose exec db psql -U life_assistant_user -d life_assistant_db
+docker compose exec db psql -U life_assistant_user -d life_assistant_db
 ```
 
 ### バックエンド開発
 
 ```bash
 # Pythonシェルを起動（アプリコンテキスト内）
-docker-compose exec server uv run python
+docker compose exec server uv run python
 
 # 依存関係を追加
-docker-compose exec server uv add パッケージ名
+docker compose exec server uv add パッケージ名
 
 # 依存関係をインストール
-docker-compose exec server uv sync
+docker compose exec server uv sync
 ```
 
 ### フロントエンド開発
 
 ```bash
 # lintを実行
-docker-compose exec client npm run lint
+docker compose exec client npm run lint
 
 # ビルド
-docker-compose exec client npm run build
+docker compose exec client npm run build
 ```
 
 ## プロジェクト構成
@@ -193,7 +193,7 @@ life-assistant-agent-app/
 │   │   ├── infrastructure/ # データベース・外部サービス
 │   │   └── services/       # アプリケーションサービス
 │   └── pyproject.toml      # Python依存関係
-├── docker-compose.yml      # Docker設定
+├── docker compose.yml      # Docker設定
 ├── CLAUDE.md               # Claude Code向けドキュメント
 └── README.md               # このファイル
 ```
@@ -239,24 +239,24 @@ life-assistant-agent-app/
 
 ```bash
 # コンテナとボリュームをクリーン
-docker-compose down -v
-docker-compose up --build
+docker compose down -v
+docker compose up --build
 ```
 
 ### データベース接続エラー
 
 ```bash
 # データベースの健全性チェック
-docker-compose exec db pg_isready -U life_assistant_user
+docker compose exec db pg_isready -U life_assistant_user
 ```
 
 ### マイグレーションエラー
 
 ```bash
 # マイグレーション履歴を確認
-docker-compose exec server uv run alembic history
-docker-compose exec server uv run alembic current
+docker compose exec server uv run alembic history
+docker compose exec server uv run alembic current
 
 # 必要に応じてマイグレーションをロールバック
-docker-compose exec server uv run alembic downgrade -1
+docker compose exec server uv run alembic downgrade -1
 ```
