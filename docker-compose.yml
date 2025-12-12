@@ -35,12 +35,9 @@ services:
     restart: unless-stopped
     user: "1001:1001"
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-life_assistant_db}
-      POSTGRES_USER: ${POSTGRES_USER:-life_assistant_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_this_secure_password}
-      POSTGRES_HOST: db
-      POSTGRES_PORT: 5432
-      DATABASE_URL: postgresql://${POSTGRES_USER:-life_assistant_user}:${POSTGRES_PASSWORD:-change_this_secure_password}@db:5432/${POSTGRES_DB:-life_assistant_db}
+      DATABASE_URL_ASYNC: postgresql+asyncpg://${POSTGRES_USER:-life_assistant_user}:${POSTGRES_PASSWORD:-change_this_secure_password}@db:5432/${POSTGRES_DB:-life_assistant_db}
+      DATABASE_URL_SYNC: postgresql+psycopg://${POSTGRES_USER:-life_assistant_user}:${POSTGRES_PASSWORD:-change_this_secure_password}@db:5432/${POSTGRES_DB:-life_assistant_db}
+      ALEMBIC_MODE: ${ALEMBIC_MODE:-sync}
       PYTHON_ENV: ${PYTHON_ENV:-development}
       DEBUG: ${DEBUG:-true}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
